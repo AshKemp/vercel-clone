@@ -26,6 +26,7 @@ app.post("/deploy", async (req, res) => {
     const uploadPath = file.slice(__dirname.length + 1).replace(/\\/g, "/");
     await uploadFile(uploadPath, file);
   });
+  await new Promise((resolve) => setTimeout(resolve, 5000));
   publisher.lPush("build-queue", id);
   publisher.hSet("status", id, "uploaded");
   res.json({
