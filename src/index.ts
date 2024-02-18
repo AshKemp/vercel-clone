@@ -10,7 +10,7 @@ const publisher = createClient();
 publisher.connect();
 
 const subscriber = createClient();
-publisher.connect();
+subscriber.connect();
 
 const app = express();
 app.use(cors());
